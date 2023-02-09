@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca:wght@300;400&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --brightorange: hsl(31, 77%, 52%);
+  --darkcyan: hsl(184, 100%, 22%);
+  --verydarkcyan: hsl(179, 100%, 13%);
+  --transparentwhite: hsla(0, 0%, 100%, 0.75);
+  --verylightgray: hsl(0, 0%, 95%);
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  font-size: 15px;
+  background-color: var(--verylightgray);
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  font-family: "Lexend Deca", sans-serif;
+  line-height: 1.5;
+
+  display: grid;
+  grid-area: card;
+  grid-template-columns: repeat(3, 1fr);
+  border-radius: 6px;
+  max-width: 800px;
+}
+
+.card .card__item {
+  display: grid;
+  grid-template-rows: auto auto minmax(260px, max-content) auto;
+  padding-inline: 3em;
+  padding-block: 4em;
+}
+
+.card .card__item:first-child {
+  background-color: var(--brightorange);
+  border-radius: 6px 0 0 6px;
+}
+
+.card .card__item:nth-child(2) {
+  background-color: var(--darkcyan);
+}
+
+.card .card__item:last-child {
+  background-color: var(--verydarkcyan);
+  border-radius: 0 6px 6px 0;
+}
+
+.card .card__item h3 {
+  font-family: "Big Shoulders Display", cursive;
+  font-size: 32px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: var(--verylightgray);
+}
+
+.card .card__item p {
+  color: var(--verylightgray);
+  font-weight: 300;
+}
+
+.card a.more {
+  transition: color 500ms ease, background-color 500ms ease;
+  border-radius: 30px;
+  padding: 0.5em 1.5em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: max-content;
+}
+.card a.more:link,
+a.more:visited {
+  border: 2px solid var(--verylightgray);
+  background-color: var(--verylightgray);
+}
+
+.card .card__item:first-child a.more {
+  color: var(--brightorange);
+}
+
+.card .card__item:nth-child(2) a.more {
+  color: var(--darkcyan);
+}
+
+.card .card__item:last-child a.more {
+  color: var(--verydarkcyan);
+}
+
+.card a.more:hover,
+.card a.more:active {
+  background-color: transparent;
+  color: var(--verylightgray) !important;
+}
+
+@media only screen and (max-width: 650px) {
+  .card {
+    grid-template-columns: 100%;
+    margin: 1em;
+  }
+
+  .card .card__item {
+    grid-template-rows: auto auto minmax(160px, max-content) auto;
+    max-width: 360px;
+  }
+
+  .card .card__item:first-child {
+    background-color: var(--brightorange);
+    border-radius: 6px 6px 0 0;
+  }
+
+  .card .card__item:last-child {
+    background-color: var(--verydarkcyan);
+    border-radius: 0 0 6px 6px;
+  }
+}
